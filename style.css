@@ -8,13 +8,26 @@
     flex-basis: 6em;
 }
 
+.buttons-container .numbers > * {
+    flex: 1 1 33%;
+}
+
 .buttons-container .operators {
     display: flex;
     flex-flow: column wrap;
     flex-basis: 2em;
 }
 
-button {
-    width: 2em;
-    height: 2em;
+.buttons-container .operators > * {
+    flex: 1;
+}
+
+.buttons-container .equals {
+    display: flex;
+    flex-flow: column wrap;
+    flex-basis: 2em;
+}
+
+.buttons-container .equals #equals{
+    flex: 1;
 }
