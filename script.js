@@ -6,10 +6,10 @@ const calculator = {
         return a - b;
     },
     mul: function (a, b) {
-        return `The product of ${a} and ${b} is equals to ${a * b}`;
+        return a * b;
     },
     div: function (a, b) {
-        return `The quotient of ${a} and ${b} is equals to ${a / b}`;
+        return a / b;
     },
     showAll: function (a, b) {
         const allAnswers = [
@@ -49,8 +49,17 @@ submitButton.addEventListener("click", showNumber);
 const BUTTON_ONE = document.querySelector('#one');
 const BUTTON_TWO = document.querySelector('#two');
 const BUTTON_THREE = document.querySelector('#three');
+const BUTTON_FOUR = document.querySelector('#four');
+const BUTTON_FIVE = document.querySelector('#five');
+const BUTTON_SIX = document.querySelector('#six');
+const BUTTON_SEVEN = document.querySelector('#seven');
+const BUTTON_EIGHT = document.querySelector('#eight');
+const BUTTON_NINE = document.querySelector('#nine');
+const BUTTON_ZERO = document.querySelector('#zero');
 const BUTTON_ADDITION = document.querySelector('#addition');
 const BUTTON_SUBTRACTION = document.querySelector('#subtraction');
+const BUTTON_MULTIPLICATION = document.querySelector('#multiplication');
+const BUTTON_DIVITION = document.querySelector('#divition');
 
 let INPUT_NUMBER, STORE_INPUT_NUMBER, OPERATOR;
 let OPERATOR_MODE = false;
@@ -68,7 +77,7 @@ function SET_NUMBER(ANY_BUTTON_NUMBER_CLICKED) {
 function SET_OPERATOR(ANY_BUTTON_OPERATOR_CLICKED) {
     OPERATOR = ANY_BUTTON_OPERATOR_CLICKED.target.innerHTML;
     let TOTAL = firstNumber.value;
-    
+
     if (OPERATOR_MODE) {
         secondNumber.value = secondNumber.value.toString().slice(0, secondNumber.value.toString().length - 1) + OPERATOR;
     } else {
@@ -90,11 +99,24 @@ function FIND_OPERATOR(b, a) {
             return calculator.plus(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
         case '-':
             return calculator.sub(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
+        case '*':
+            return calculator.mul(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
+        case '/':
+            return calculator.div(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
     }
 }
 
 BUTTON_ONE.addEventListener("click", SET_NUMBER);
 BUTTON_TWO.addEventListener("click", SET_NUMBER);
 BUTTON_THREE.addEventListener("click", SET_NUMBER);
+BUTTON_FOUR.addEventListener("click", SET_NUMBER);
+BUTTON_FIVE.addEventListener("click", SET_NUMBER);
+BUTTON_SIX.addEventListener("click", SET_NUMBER);
+BUTTON_SEVEN.addEventListener("click", SET_NUMBER);
+BUTTON_EIGHT.addEventListener("click", SET_NUMBER);
+BUTTON_NINE.addEventListener("click", SET_NUMBER);
+BUTTON_ZERO.addEventListener("click", SET_NUMBER);
 BUTTON_ADDITION.addEventListener("click", SET_OPERATOR);
 BUTTON_SUBTRACTION.addEventListener("click", SET_OPERATOR);
+BUTTON_MULTIPLICATION.addEventListener("click", SET_OPERATOR);
+BUTTON_DIVITION.addEventListener("click", SET_OPERATOR);
