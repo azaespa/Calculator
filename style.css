@@ -1,0 +1,20 @@
+.buttons-container {
+    display:flex;
+}
+
+.buttons-container .numbers {
+    display: flex;
+    flex-flow: row wrap;
+    flex-basis: 6em;
+}
+
+.buttons-container .operators {
+    display: flex;
+    flex-flow: column wrap;
+    flex-basis: 2em;
+}
+
+button {
+    width: 2em;
+    height: 2em;
+}
