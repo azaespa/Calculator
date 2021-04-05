@@ -1,7 +1,7 @@
 .buttons-container {
     display:flex;
-}
 
+}
 .buttons-container .numbers {
     display: flex;
     flex-flow: row wrap;
@@ -30,4 +30,64 @@
 
 .buttons-container .equals #equals{
     flex: 1;
+}
+
+.text-container {
+    display: flex;
+}
+
+.text-container .text {
+    display: flex;
+    flex-flow: column-reverse wrap;
+    border: 1px solid grey;
+}
+
+.text-container .text > * {
+    width: 9.7rem;
+}
+
+input[type="text"] {
+    text-align: right;
+    border-style: none;
+}
+
+#firstNumber {
+    font-size: 1em;
+}
+
+#secondNumber {
+    font-size: .25em;
+    color: grey;
+}
+
+.numbers > * {
+    background-color: rgb(245, 245, 245);
+    border: 1px solid grey;
+}
+
+.numbers > *:hover,
+.operators > *:hover{
+    background-color: grey;
+    color: white;
+    transition: .2s ease-in;
+}
+
+.operators > * {
+    background-color: rgb(220, 220, 220);
+    border: 1px solid grey;
+}
+
+.equals >* {
+    background-color: rgb(245, 245, 245);
+    border: 1px solid grey;
+}
+
+.equals > *:hover{
+    background-color: grey;
+    color: white;
+    transition: .2s ease-in;
+}
+
+button:active {
+    font-size: .5em;
 }

@@ -24,3 +24,8 @@ Added 1 button for equals
 Still can function like an actual calculator
 except it doesnt clear the text fields yet and giving an error after clicking 
 the number buttons again after clicking the equal button.
+
+PATCH 1.4
+Made the two inputs in readonly mode
+ehanced the color and hover effect of all of the buttons
+errors occur in PATCH 1.3 is already fixed

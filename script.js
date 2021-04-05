@@ -24,7 +24,6 @@ const calculator = {
 
 const firstNumber = document.querySelector("#firstNumber");
 const secondNumber = document.querySelector("#secondNumber");
-const submitButton = document.querySelector("#submitButton");
 
 let FIRST_NUMBER, SECOND_NUMBER;
 
@@ -36,15 +35,8 @@ function getSecondNumber(a) {
     SECOND_NUMBER = Number(a.target.value);
 }
 
-function showNumber() {
-    const answer = document.createElement("p");
-    answer.appendChild(document.createTextNode(calculator.showAll(FIRST_NUMBER, SECOND_NUMBER)));
-    document.body.appendChild(answer);
-}
-
 firstNumber.addEventListener("input", getFirstNumber);
 secondNumber.addEventListener("input", getSecondNumber);
-submitButton.addEventListener("click", showNumber);
 
 const BUTTON_ONE = document.querySelector('#one');
 const BUTTON_TWO = document.querySelector('#two');
@@ -72,9 +64,14 @@ function SET_NUMBER(ANY_BUTTON_NUMBER_CLICKED) {
     if (OPERATOR_MODE) {
         firstNumber.value = INPUT_NUMBER;
         OPERATOR_MODE = false;
-        GRAND_TOTAL_MODE = false;
     } else {
         firstNumber.value += INPUT_NUMBER;
+    }
+    
+    if (GRAND_TOTAL_MODE) {
+        firstNumber.value = INPUT_NUMBER;
+        secondNumber.value = '';
+        GRAND_TOTAL_MODE = false;  
     }
 }
 
