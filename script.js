@@ -59,6 +59,22 @@ let INPUT_NUMBER, STORE_INPUT_NUMBER, OPERATOR;
 let OPERATOR_MODE = false;
 let GRAND_TOTAL_MODE = false;
 
+function SET_NUMBER_KEY(ANY_KEY_NUMBER) {
+    INPUT_NUMBER = ANY_KEY_NUMBER;
+    if (OPERATOR_MODE) {
+        firstNumber.value = INPUT_NUMBER;
+        OPERATOR_MODE = false;
+    } else {
+        firstNumber.value += INPUT_NUMBER;
+    }
+    
+    if (GRAND_TOTAL_MODE) {
+        firstNumber.value = INPUT_NUMBER;
+        secondNumber.value = '';
+        GRAND_TOTAL_MODE = false;  
+    }
+}
+
 function SET_NUMBER(ANY_BUTTON_NUMBER_CLICKED) {
     INPUT_NUMBER = ANY_BUTTON_NUMBER_CLICKED.target.innerHTML;
     if (OPERATOR_MODE) {
@@ -73,6 +89,7 @@ function SET_NUMBER(ANY_BUTTON_NUMBER_CLICKED) {
         secondNumber.value = '';
         GRAND_TOTAL_MODE = false;  
     }
+    firstNumber.focus();
 }
 
 function SET_OPERATOR(ANY_BUTTON_OPERATOR_CLICKED) {
@@ -136,6 +153,12 @@ function SET_GRAND_TOTAL () {
     firstNumber.value = Number(GRAND_TOTAL);
 }
 
+function handleKeyPress(event){
+    const num = Number(event.key);
+    SET_NUMBER_KEY(num);
+}
+
+firstNumber.addEventListener("keypress", handleKeyPress);
 BUTTON_ONE.addEventListener("click", SET_NUMBER);
 BUTTON_TWO.addEventListener("click", SET_NUMBER);
 BUTTON_THREE.addEventListener("click", SET_NUMBER);
