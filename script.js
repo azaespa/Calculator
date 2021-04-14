@@ -1,3 +1,22 @@
+const firstNumber = document.querySelector("#firstNumber");
+const secondNumber = document.querySelector("#secondNumber");
+const BUTTON_ONE = document.querySelector('#one');
+const BUTTON_TWO = document.querySelector('#two');
+const BUTTON_THREE = document.querySelector('#three');
+const BUTTON_FOUR = document.querySelector('#four');
+const BUTTON_FIVE = document.querySelector('#five');
+const BUTTON_SIX = document.querySelector('#six');
+const BUTTON_SEVEN = document.querySelector('#seven');
+const BUTTON_EIGHT = document.querySelector('#eight');
+const BUTTON_NINE = document.querySelector('#nine');
+const BUTTON_ZERO = document.querySelector('#zero');
+const BUTTON_DECIMAL = document.querySelector('#decimal');
+const BUTTON_ADDITION = document.querySelector('#addition');
+const BUTTON_SUBTRACTION = document.querySelector('#subtraction');
+const BUTTON_MULTIPLICATION = document.querySelector('#multiplication');
+const BUTTON_DIVISION = document.querySelector('#division');
+const BUTTON_EQUALS = document.querySelector('#equals');
+
 const calculator = {
     plus: function (a, b) {
         return a + b;
@@ -22,9 +41,6 @@ const calculator = {
     }
 }
 
-const firstNumber = document.querySelector("#firstNumber");
-const secondNumber = document.querySelector("#secondNumber");
-
 let FIRST_NUMBER, SECOND_NUMBER;
 
 function getFirstNumber(a) {
@@ -38,24 +54,7 @@ function getSecondNumber(a) {
 firstNumber.addEventListener("input", getFirstNumber);
 secondNumber.addEventListener("input", getSecondNumber);
 
-const BUTTON_ONE = document.querySelector('#one');
-const BUTTON_TWO = document.querySelector('#two');
-const BUTTON_THREE = document.querySelector('#three');
-const BUTTON_FOUR = document.querySelector('#four');
-const BUTTON_FIVE = document.querySelector('#five');
-const BUTTON_SIX = document.querySelector('#six');
-const BUTTON_SEVEN = document.querySelector('#seven');
-const BUTTON_EIGHT = document.querySelector('#eight');
-const BUTTON_NINE = document.querySelector('#nine');
-const BUTTON_ZERO = document.querySelector('#zero');
-const BUTTON_DECIMAL = document.querySelector('#decimal');
-const BUTTON_ADDITION = document.querySelector('#addition');
-const BUTTON_SUBTRACTION = document.querySelector('#subtraction');
-const BUTTON_MULTIPLICATION = document.querySelector('#multiplication');
-const BUTTON_DIVISION = document.querySelector('#division');
-const BUTTON_EQUALS = document.querySelector('#equals');
-
-let INPUT_NUMBER, STORE_INPUT_NUMBER, OPERATOR;
+let INPUT_NUMBER;
 let OPERATOR_MODE = false;
 let GRAND_TOTAL_MODE = false;
 
@@ -93,7 +92,7 @@ function SET_NUMBER(ANY_BUTTON_NUMBER_CLICKED) {
 }
 
 function SET_OPERATOR(ANY_BUTTON_OPERATOR_CLICKED) {
-    OPERATOR = ANY_BUTTON_OPERATOR_CLICKED.target.innerHTML;
+    const OPERATOR = ANY_BUTTON_OPERATOR_CLICKED.target.innerHTML;
     let TOTAL = firstNumber.value;
     if (OPERATOR_MODE) {
         secondNumber.value = secondNumber.value.toString().slice(0, secondNumber.value.toString().length - 1) + OPERATOR;
