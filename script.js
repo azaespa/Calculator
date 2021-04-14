@@ -91,6 +91,21 @@ function SET_NUMBER(ANY_BUTTON_NUMBER_CLICKED) {
     firstNumber.focus();
 }
 
+function SET_OPERATOR_KEY(ANY_BUTTON_OPERATOR_CLICKED) {
+    const OPERATOR = ANY_BUTTON_OPERATOR_CLICKED;
+    let TOTAL = firstNumber.value;
+    if (OPERATOR_MODE) {
+        secondNumber.value = secondNumber.value.toString().slice(0, secondNumber.value.toString().length - 1) + OPERATOR;
+    } else {
+        if (secondNumber.value != '') {
+            TOTAL = FIND_OPERATOR(secondNumber.value, firstNumber.value);
+        }
+        secondNumber.value = TOTAL + OPERATOR;
+        firstNumber.value = TOTAL;
+        OPERATOR_MODE = true;
+    }
+}
+
 function SET_OPERATOR(ANY_BUTTON_OPERATOR_CLICKED) {
     const OPERATOR = ANY_BUTTON_OPERATOR_CLICKED.target.innerHTML;
     let TOTAL = firstNumber.value;
@@ -152,9 +167,22 @@ function SET_GRAND_TOTAL () {
     firstNumber.value = Number(GRAND_TOTAL);
 }
 
+function isNumber(key){
+    const numberSet = "1234567890";
+    const operatorSet = "+-/*"
+    switch(true){
+        case numberSet.includes(key):
+            return true;
+        case operatorSet.includes(key):
+            return false;
+        default: 
+            break;
+    }
+}
+
 function handleKeyPress(event){
-    const num = Number(event.key);
-    SET_NUMBER_KEY(num);
+    const key = event.key;
+    isNumber(key) ? SET_NUMBER_KEY(Number(key)) : SET_OPERATOR_KEY(key);
 }
 
 firstNumber.addEventListener("keypress", handleKeyPress);
