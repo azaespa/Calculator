@@ -29,3 +29,15 @@ PATCH 1.4
 Made the two inputs in readonly mode
 ehanced the color and hover effect of all of the buttons
 errors occur in PATCH 1.3 is already fixed
+
+PATCH 1.5 
+Added keypress function
+can now use the number keys
+
+PATCH 1.6
+Added keypress function
+can now use both numbers and operators keys
+
+PATCH 1.7 
+Added keypress function (under maintenance)
+adding the equals key makes the code more tricky and buggy.
