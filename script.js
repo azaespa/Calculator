@@ -167,30 +167,37 @@ function SET_GRAND_TOTAL () {
     firstNumber.value = Number(GRAND_TOTAL);
 }
 
-function isNumber(key){
+function isKeyNumber(key){
     const numberSet = "1234567890";
-    const operatorSet = "+-/*"
-    const equalSet = "=";
-    switch(true){
-        case numberSet.includes(key):
-            return true;
-        case operatorSet.includes(key):
-            return false;
-        case equalSet === key:
-            return "equals";
-        default: 
-            break;
-    }
+    let isKeyNumberBool;
+    isKeyNumberBool = numberSet.includes(key) ? true : false;
+    return isKeyNumberBool;
+}
+
+function isKeyOperator(key){
+    const operatorSet = "+-/*";
+    let isKeyOperatorBool;
+    isKeyOperatorBool = operatorSet.includes(key) ? true : false;
+    return isKeyOperatorBool;
+}
+
+function isKeyEquals(key){
+    const equals = "=Enter";
+    let isKeyEqualsBool;
+    isKeyEqualsBool = equals.includes(key) ? true : false;
+    return isKeyEqualsBool;
 }
 
 function handleKeyPress(event){
     const key = event.key;
-    if (isNumber(key) === key){
-        SET_GRAND_TOTAL();
-    } else {
-        isNumber(key) ? SET_NUMBER_KEY(Number(key)) : SET_OPERATOR_KEY(key);
+    switch (true){
+        case isKeyNumber(key):
+            return SET_NUMBER_KEY(key);
+        case isKeyOperator(key):
+            return SET_OPERATOR_KEY(key);
+        case isKeyEquals(key):
+            return SET_GRAND_TOTAL();
     }
-    console.log(isNumber(key));
 }
 
 firstNumber.addEventListener("keypress", handleKeyPress);
