@@ -41,3 +41,7 @@ can now use both numbers and operators keys
 PATCH 1.7 
 Added keypress function (under maintenance)
 adding the equals key makes the code more tricky and buggy.
+
+PATCH 1.8 
+All numbers, operators, and equal/return keys are now
+functioning properly. 
