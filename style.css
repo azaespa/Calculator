@@ -1,3 +1,6 @@
+*,*:focus,*:hover{
+    outline:none;
+}
 
 .text-container {
     display: flex;
@@ -9,6 +12,8 @@
     flex-flow: column-reverse wrap;
     border: 1px solid grey;
     width: 295px;
+    height: 3em;
+    border-radius: 2px;
 }
 
 input[type="text"] {
@@ -49,4 +54,36 @@ input[type="text"] {
 
 button {
     width: 70px;
+    height: 2em;
+    color: rgb(32, 33, 36);
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    --border-color: rgb(241, 243, 244);
+    --bg-color: rgb(241, 243, 244);
+}
+
+.number:active {
+    --border-color: rgb(202, 202, 202);
+}
+
+#equals:active {
+    --border-color: rgb(44, 107, 209);
+    box-shadow: -1px 2px 6px rgb(118, 170, 255);
+}
+
+.operators button:active {
+    --border-color: rgb(172, 172, 172);
+}
+
+.operators button {
+    --bg-color: rgb(218, 220, 224);
+    --border-color: rgb(218, 220, 224);
+}
+
+#equals {
+    --bg-color: rgb(66, 133, 244);
+    --border-color: rgb(66, 133, 244);
+    color: white;
+    font-weight: bold;
 }
