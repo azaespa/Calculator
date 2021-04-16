@@ -119,6 +119,7 @@ function SET_OPERATOR(ANY_BUTTON_OPERATOR_CLICKED) {
         firstNumber.value = TOTAL;
         OPERATOR_MODE = true;
     }
+    firstNumber.focus();
 }
 
 function FIND_OPERATOR(b, a) {
@@ -126,16 +127,23 @@ function FIND_OPERATOR(b, a) {
     const SECOND_NUMBER_TO_STRING = b.toString();
     const OPERATOR = SECOND_NUMBER_TO_STRING.slice(-1);
     const SECOND_NUMBER_TO_INTEGER = Number(SECOND_NUMBER_TO_STRING.slice(0, SECOND_NUMBER_TO_STRING.length - 1))
+    return calculate(OPERATOR, FIRST_NUMBER_TO_INTEGER, SECOND_NUMBER_TO_INTEGER);
+}
 
-    switch (OPERATOR) {
+function calculate(operator, firstNum, secNum) {
+    switch (operator) {
         case '+':
-            return calculator.plus(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
+            return calculator.plus(secNum, firstNum);
         case '-':
-            return calculator.sub(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
+            return calculator.sub(secNum, firstNum);
+        case 'x':
+            return calculator.mul(secNum, firstNum);
         case '*':
-            return calculator.mul(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
+            return calculator.mul(secNum, firstNum);
+        case '÷':
+            return calculator.div(secNum, firstNum);
         case '/':
-            return calculator.div(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
+            return calculator.div(secNum, firstNum);
     }
 }
 
@@ -145,25 +153,10 @@ function SET_GRAND_TOTAL () {
     const FIRST_NUMBER_TO_INTEGER = Number(firstNumber.value);
     const SECOND_NUMBER_TO_STRING = secondNumber.value.toString().slice(0, secondNumber.value.toString().length - 1);
     const SECOND_NUMBER_TO_INTEGER = Number(SECOND_NUMBER_TO_STRING);
-    let GRAND_TOTAL;
-
-    switch (OPERATOR) {
-        case '+':
-            GRAND_TOTAL = calculator.plus(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
-            break;
-        case '-':
-            GRAND_TOTAL = calculator.sub(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
-            break;
-        case '*':
-            GRAND_TOTAL = calculator.mul(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
-            break;
-        case '/':
-            GRAND_TOTAL = calculator.div(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
-            break;
-    }
+    let GRAND_TOTAL = calculate(OPERATOR, FIRST_NUMBER_TO_INTEGER, SECOND_NUMBER_TO_INTEGER);;
 
     secondNumber.value += firstNumber.value;
-    firstNumber.value = Number(GRAND_TOTAL);
+    firstNumber.value = GRAND_TOTAL;
 }
 
 function isKeyNumber(key){

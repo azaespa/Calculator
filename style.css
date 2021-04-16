@@ -4,16 +4,16 @@
 }
 
 .text-container .text {
+    box-sizing: border-box;
     display: flex;
     flex-flow: column-reverse wrap;
     border: 1px solid grey;
-}
-
-.text-container .text > * {
-    width: 9.7rem;
+    width: 295px;
 }
 
 input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
     text-align: right;
     border-style: none;
 }
