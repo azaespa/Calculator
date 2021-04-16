@@ -137,7 +137,6 @@ function FIND_OPERATOR(b, a) {
         case '/':
             return calculator.div(SECOND_NUMBER_TO_INTEGER, FIRST_NUMBER_TO_INTEGER);
     }
-    console.log("Grand total works!");
 }
 
 function SET_GRAND_TOTAL () {
