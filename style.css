@@ -61,6 +61,7 @@ button {
     border-radius: 2px;
     --border-color: rgb(241, 243, 244);
     --bg-color: rgb(241, 243, 244);
+    cursor: pointer;
 }
 
 .number:active {
