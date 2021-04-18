@@ -17,8 +17,8 @@
     </div>
     <div class="text-container">
         <div class="text">
-            <input type="text" id="firstNumber" placeholder="0" readonly>
-            <input type="text" id="secondNumber" placeholder="" readonly>
+            <input type="text" id="inputBottom" value="0" readonly>
+            <input type="text" id="inputTop" placeholder="" readonly>
         </div>
     </div>
     <div class="buttons-container">
@@ -37,13 +37,14 @@
             <button id="equals">=</button>
         </div>
         <div class="operators">
-            <button id="division">÷</button>
-            <button id="multiplication">x</button>
-            <button id="subtraction">-</button>
-            <button id="addition">+</button>
+            <button id="division" operator="/">÷</button>
+            <button id="multiplication" operator="*">x</button>
+            <button id="subtraction" operator="-">-</button>
+            <button id="addition" operator="+">+</button>
         </div>
     </div>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="calculator.js"></script>
 </body>
 
 </html>

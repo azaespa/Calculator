@@ -23,11 +23,11 @@ input[type="text"] {
     border-style: none;
 }
 
-#firstNumber {
+#inputBottom {
     font-size: 1em;
 }
 
-#secondNumber {
+#inputTop {
     font-size: .25em;
     color: grey;
 }

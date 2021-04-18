@@ -41,14 +41,18 @@ const calculator = {
     }
 }
 
-let FIRST_NUMBER, SECOND_NUMBER;
+let FIRST_NUMBER, SECOND_NUMBER, ANS;
 
-function getFirstNumber(a) {
-    FIRST_NUMBER = Number(a.target.value);
+function storeNumberInput(){
+    
 }
 
-function getSecondNumber(a) {
-    SECOND_NUMBER = Number(a.target.value);
+function getFirstNumber(num) {
+    FIRST_NUMBER = Number(num.target.value);
+}
+
+function getSecondNumber(num) {
+    SECOND_NUMBER = Number(num.target.value);
 }
 
 firstNumber.addEventListener("input", getFirstNumber);
@@ -147,16 +151,36 @@ function calculate(operator, firstNum, secNum) {
     }
 }
 
+function isSecNumEmpty(){
+    if(secondNumber.value === ""){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function SET_GRAND_TOTAL () {
     GRAND_TOTAL_MODE = true;
     const OPERATOR = secondNumber.value.toString().slice(-1);
     const FIRST_NUMBER_TO_INTEGER = Number(firstNumber.value);
     const SECOND_NUMBER_TO_STRING = secondNumber.value.toString().slice(0, secondNumber.value.toString().length - 1);
     const SECOND_NUMBER_TO_INTEGER = Number(SECOND_NUMBER_TO_STRING);
-    let GRAND_TOTAL = calculate(OPERATOR, FIRST_NUMBER_TO_INTEGER, SECOND_NUMBER_TO_INTEGER);;
-
+    let GRAND_TOTAL;
+    if (isSecNumEmpty) {
+        GRAND_TOTAL = firstNumber.value;
+    } else {
+        GRAND_TOTAL = calculate(OPERATOR, FIRST_NUMBER_TO_INTEGER, SECOND_NUMBER_TO_INTEGER);
+    }
     secondNumber.value += firstNumber.value;
     firstNumber.value = GRAND_TOTAL;
+}
+
+function grandTotal () {
+    firstNumber.value = firstNumber.value;
+}
+
+function paintGrandTotal() {
+    GRAND_TOTAL_MODE ? grandTotal() : SET_GRAND_TOTAL();
 }
 
 function isKeyNumber(key){
@@ -208,4 +232,4 @@ BUTTON_ADDITION.addEventListener("click", SET_OPERATOR);
 BUTTON_SUBTRACTION.addEventListener("click", SET_OPERATOR);
 BUTTON_MULTIPLICATION.addEventListener("click", SET_OPERATOR);
 BUTTON_DIVISION.addEventListener("click", SET_OPERATOR);
-BUTTON_EQUALS.addEventListener("click", SET_GRAND_TOTAL);
+BUTTON_EQUALS.addEventListener("click", paintGrandTotal);
